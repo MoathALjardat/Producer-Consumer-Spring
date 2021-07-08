@@ -1,23 +1,29 @@
 package com.example.demo;
-import com.example.demo.models.Student;
+import com.example.demo.Threads.MoathThread;
+import com.example.demo.requset.MoathRequest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.lang.reflect.Method;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 @SpringBootApplication
 public class DemoApplication {
-
-
-	public static void main(String[] args) {
-		Student s = new Student();
-		Class c = s.getClass();
-		int mods = c.getModifiers();
-		System.out.println(mods);
-		Method m[] = c.getDeclaredMethods();
-		for (int i = 0; i < m.length; i++)
-			System.out.println(m[i].toString());
-
+	public static void main(String[] args) throws IOException {
 		SpringApplication.run(DemoApplication.class, args);
-	}
 
+		int numberOfRecords = MoathRequest.requestForCount();
+
+		ArrayList<MoathThread> ar = new ArrayList<>();
+
+		for (int i = 0 ; i < numberOfRecords ; i++)
+		{
+			ar.add(new MoathThread(i+1));
+		}
+
+		for (int i = 0 ; i < numberOfRecords ; i++)
+		{
+			ar.get(i).thread.start();
+		}
+	}
 }

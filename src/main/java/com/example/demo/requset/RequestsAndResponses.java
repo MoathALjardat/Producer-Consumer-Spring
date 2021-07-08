@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class MoathRequest {
+public class RequestsAndResponses {
 
     public static int requestForCount() throws IOException {
 
@@ -41,4 +41,5 @@ public class MoathRequest {
         return gpa;
 
     }
+
 }

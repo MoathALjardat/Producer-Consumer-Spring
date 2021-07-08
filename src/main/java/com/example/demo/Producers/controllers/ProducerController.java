@@ -1,6 +1,6 @@
-package com.example.demo.controllers;
+package com.example.demo.Producers.controllers;
 
-import com.example.demo.services.ProducerService;
+import com.example.demo.Producers.services.ProducerService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
